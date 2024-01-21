@@ -27,8 +27,37 @@ Constraints
 #include <stdlib.h>
 using namespace std;
 
+int missingNumber(int arr[], int n);
 int main()
 {
-    
+    int n;
+    cout<<"ENter n: ";
+    cin>>n;
+    int nArr[n-1];
+
+    for (int i = 0; i<n-1; i++)
+    {
+        cout<<"Enter value: ";
+        cin>>nArr[i];
+    }
+
+    //checking missing number
+    int mn = missingNumber(nArr, n);
+    cout<<"Missing number is: "<<mn;
+
     return 0;
+}
+
+int missingNumber(int arr[], int n)
+{
+        for (int i = n; i<=1; --i)
+    {
+        for (int j = 0; j<n; j++)
+        {
+            if (arr[j] != i)
+            {
+                return i;
+            }
+        }
+    }
 }
